@@ -33,15 +33,38 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
-          </ul>
+          <h1>${variables.name || "Your Name"} ${variables.lastName || ""}</h1>
+          <h2>${variables.role ? variables.role : "Your Role"}</h2>
+          <h3>  ${
+            variables.city && variables.country
+              ? `${variables.city}, ${variables.country}`
+              : variables.city
+              ? variables.city
+              : variables.country
+              ? variables.country
+              : "Your Location"
+          }</h3>
+          <ul class="${variables.socialMediaPosition}">
+          ${
+            variables.twitter
+              ? `<li><a href="https://twitter.com/${variables.twitter}" target="_blank"><i class="fab fa-twitter"></i></a></li>`
+              : ""
+          }
+          ${
+            variables.github
+              ? `<li><a href="https://github.com/${variables.github}" target="_blank"><i class="fab fa-github"></i></a></li>`
+              : ""
+          }
+          ${
+            variables.linkedin
+              ? `<li><a href="https://linkedin.com/in/${variables.linkedin}" target="_blank"><i class="fab fa-linkedin"></i></a></li>`
+              : ""
+          }
+          ${
+            variables.instagram
+              ? `<li><a href="https://instagram.com/${variables.instagram}" target="_blank"><i class="fab fa-instagram"></i></a></li>`
+              : ""
+          }
         </div>
     `;
 }
