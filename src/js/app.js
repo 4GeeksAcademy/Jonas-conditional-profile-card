@@ -44,6 +44,28 @@ function render(variables = {}) {
               ? variables.country
               : "Your Location"
           }</h3>
+          <div style="text-align: center; margin-top: 5px; display: flex; flex-direction: column; align-items: center; font-size: 14px; color: grey; font-family: inherit;">
+            ${
+              variables.twitter
+                ? `<span>Twitter: @${variables.twitter}</span>`
+                : ""
+            }
+            ${
+              variables.github ? `<span>GitHub: ${variables.github}</span>` : ""
+            }
+            ${
+              variables.linkedin
+                ? `<span>LinkedIn: ${variables.linkedin}</span>`
+                : ""
+            }
+            ${
+              variables.instagram
+                ? `<span>Instagram: ${variables.instagram}</span>`
+                : ""
+            }
+    </div>
+
+
           <ul class="${variables.socialMediaPosition}">
           ${
             variables.twitter
